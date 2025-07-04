@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D&D Security SAC | Protección Profesional</title>
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Header/Hero -->
-    <header class="hero-section" style="background-image: url('img/istockphoto-842004510-1024x1024.jpg');">
+    <!-- Header / Navigation Bar -->
+    <header class="header-fixed">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo D&D Security" style="height:60px;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
+        <div class="hero-background-image">
+            <img src="img/istockphoto-842004510-1024x1024.jpg" alt="Background Image" class="img-fluid">
+        </div>
         <div class="container hero-content d-flex flex-column flex-lg-row align-items-center justify-content-between">
             <div class="text-start z-2 hero-left">
-                <img src="logo.png" alt="Logo D&D Security" class="mb-3" style="height:60px;">
                 <h1 class="fw-bold mb-2 title-highlight">D&D <span class="accent">Security SAC</span></h1>
-                <p class="lead mb-3">Protegiendo lo que más valoras<br>
-                <span class="fw-bold text-black">Más de 10 años de experiencia, incluyendo servicio en la Policía Nacional</span>
-                </p>
+                <p class="lead mb-3">Protegiendo lo que más valoras<br><span class="fw-bold text-black">Más de 10 años de experiencia, incluyendo servicio en la Policía Nacional</span></p>
                 <ul class="list-unstyled hero-benefits">
                     <li><i class="fa-solid fa-shield-halved accent"></i> Personal de confianza y altamente capacitado</li>
                     <li><i class="fa-solid fa-user-tie accent"></i> Tecnología de punta y monitoreo continuo</li>
@@ -49,93 +74,110 @@
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-   <!-- Servicios -->
-<section id="services" class="section-bg py-5">
-    <div class="container">
-        <h2 class="section-title text-center accent mb-4" data-aos="fade-up">Nuestros Servicios</h2>
-        <div class="row g-4">
-            <!-- Servicio 1: Seguridad Personal -->
-            <div class="col-md-4">
-                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100" data-aos="fade-up">
-                    <img src="img/bodyguard.avif" alt="Seguridad Personal" class="service-img">
-                    <div class="service-info">
-                        <h5 class="fw-bold mb-2">Seguridad Personal</h5>
-                        <p>Protección de ejecutivos y personas, con guardaespaldas certificados y discreción absoluta.</p>
+    <!-- Servicios -->
+    <section id="services" class="section-bg py-5">
+        <div class="container">
+            <h2 class="section-title text-center accent mb-4" data-aos="fade-up">Nuestros Servicios</h2>
+            <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Servicio 1: Seguridad Personal -->
+                    <div class="carousel-item active" data-aos="fade-up">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100">
+                                    <img src="img/bodyguard.avif" alt="Seguridad Personal" class="service-img">
+                                    <div class="service-info">
+                                        <h5 class="fw-bold mb-2">Seguridad Personal</h5>
+                                        <p>Protección de ejecutivos y personas, con guardaespaldas certificados y discreción absoluta.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Servicio 2: Seguridad Empresarial -->
+                            <div class="col-md-4">
+                                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100">
+                                    <img src="img/security-business.jpg" alt="Seguridad Empresarial" class="service-img">
+                                    <div class="service-info">
+                                        <h5 class="fw-bold mb-2">Seguridad Empresarial</h5>
+                                        <p>Resguardo y control de accesos en oficinas, empresas y condominios.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Servicio 3: Resguardo de Bienes -->
+                            <div class="col-md-4">
+                                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100">
+                                    <img src="img/resguardodebienes.jpg" alt="Resguardo de Bienes" class="service-img">
+                                    <div class="service-info">
+                                        <h5 class="fw-bold mb-2">Resguardo de Bienes</h5>
+                                        <p>Custodia de bienes materiales, activos y carga en movimiento o en almacén.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Servicio 4: Seguridad para Eventos -->
+                    <div class="carousel-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100">
+                                    <img src="img/seeguridadeventos.jpg" alt="Seguridad para Eventos" class="service-img">
+                                    <div class="service-info">
+                                        <h5 class="fw-bold mb-2">Seguridad para Eventos</h5>
+                                        <p>Cobertura total para eventos corporativos, ferias, sociales y reuniones masivas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Servicio 5: Videovigilancia 24/7 -->
+                            <div class="col-md-4">
+                                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100">
+                                    <img src="img/videovigilancia.jpg" alt="Videovigilancia 24/7" class="service-img">
+                                    <div class="service-info">
+                                        <h5 class="fw-bold mb-2">Videovigilancia 24/7</h5>
+                                        <p>Instalación y monitoreo de cámaras con acceso remoto y grabación continua.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Servicio 6: Respuesta Inmediata -->
+                            <div class="col-md-4">
+                                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100">
+                                    <img src="img/respuesta.jpg" alt="Respuesta Inmediata" class="service-img">
+                                    <div class="service-info">
+                                        <h5 class="fw-bold mb-2">Respuesta Inmediata</h5>
+                                        <p>Atención de emergencias y patrullaje reactivo durante todo el día.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Servicio 7: Transporte Seguro -->
+                    <div class="carousel-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100">
+                                    <img src="img/trasporte.jpg" alt="Transporte Seguro" class="service-img">
+                                    <div class="service-info">
+                                        <h5 class="fw-bold mb-2">Transporte Seguro</h5>
+                                        <p>Servicio de traslado y escolta con vehículos blindados y personal especializado.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Servicio 2: Seguridad Empresarial -->
-            <div class="col-md-4">
-                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100" data-aos="fade-up" data-aos-delay="100">
-                    <img src="img/" alt="Seguridad Empresarial" class="service-img">
-                    <div class="service-info">
-                        <h5 class="fw-bold mb-2">Seguridad Empresarial</h5>
-                        <p>Resguardo y control de accesos en oficinas, empresas y condominios.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Servicio 3: Resguardo de Bienes -->
-            <div class="col-md-4">
-                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100" data-aos="fade-up" data-aos-delay="200">
-                    <img src="img/resguardodebienes.jpg" alt="Resguardo de Bienes" class="service-img">
-                    <div class="service-info">
-                        <h5 class="fw-bold mb-2">Resguardo de Bienes</h5>
-                        <p>Custodia de bienes materiales, activos y carga en movimiento o en almacén.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Servicio 4: Seguridad para Eventos -->
-            <div class="col-md-4">
-                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100" data-aos="fade-up" data-aos-delay="300">
-                    <img src="img/seeguridadeventos.jpg" alt="Seguridad para Eventos" class="service-img">
-                    <div class="service-info">
-                        <h5 class="fw-bold mb-2">Seguridad para Eventos</h5>
-                        <p>Cobertura total para eventos corporativos, ferias, sociales y reuniones masivas.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Servicio 5: Videovigilancia 24/7 -->
-            <div class="col-md-4">
-                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100" data-aos="fade-up" data-aos-delay="400">
-                    <img src="img/videovigilancia.jpg" alt="Videovigilancia 24/7" class="service-img">
-                    <div class="service-info">
-                        <h5 class="fw-bold mb-2">Videovigilancia 24/7</h5>
-                        <p>Instalación y monitoreo de cámaras con acceso remoto y grabación continua.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Servicio 6: Respuesta Inmediata -->
-            <div class="col-md-4">
-                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100" data-aos="fade-up" data-aos-delay="500">
-                    <img src="img/respuesta.jpg" alt="Respuesta Inmediata" class="service-img">
-                    <div class="service-info">
-                        <h5 class="fw-bold mb-2">Respuesta Inmediata</h5>
-                        <p>Atención de emergencias y patrullaje reactivo durante todo el día.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Servicio 7: Transporte Seguro (opcional, según tu solicitud) -->
-            <div class="col-md-4">
-                <div class="service-card p-4 bg-white shadow-lg rounded-3 h-100" data-aos="fade-up" data-aos-delay="600">
-                    <img src="img/trasporte.jpg" alt="Transporte Seguro" class="service-img">
-                    <div class="service-info">
-                        <h5 class="fw-bold mb-2">Transporte Seguro</h5>
-                        <p>Servicio de traslado y escolta con vehículos blindados y personal especializado.</p>
-                    </div>
-                </div>
+                <!-- Controles del Carrusel -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Sobre Nosotros -->
     <section id="about" class="py-5">
@@ -234,6 +276,11 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- AOS Animations -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -242,4 +289,5 @@
         });
     </script>
 </body>
+
 </html>
