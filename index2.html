@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D&D Security SAC | Seguridad Profesional</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #0f172a;
+        --secondary: #1e293b;
+        --accent: #00aaff;
+        --accent-light: #c3eaff;
+        --deep-blue: #1565c0;
+        --section-bg: #f7fbff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: white;
+        color: #333;
+        padding-top: 70px;
+        overflow-x: hidden;
+      }
+
+      /* Header */
+      .navbar {
+        background-color: white;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-scrolled {
+        padding: 5px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo-img {
+        height: 50px;
+        object-fit: contain;
+      }
+
+      .navbar-nav .nav-link {
+        color: var(--primary);
+        font-weight: 500;
+        padding: 10px 15px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        margin: 0 5px;
+      }
+
+      .navbar-nav .nav-link:hover {
+        background-color: var(--accent-light);
+        color: var(--deep-blue);
+      }
+
+      .navbar-nav .nav-link.active {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        min-height: 85vh;
+        background: url("img/istockphoto-842004510-1024x1024.jpg") center/cover
+          no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Alinea el formulario a la derecha */
+        overflow: hidden;
+        color: white;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Oscurecer la imagen para mejorar la legibilidad del texto */
+        z-index: 1;
+      }
+      .hero-background-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
+        z-index: 0;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 50px 0;
+      }
+
+      .hero-left h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-left h1 .accent {
+        color: var(--accent);
+      }
+
+      .hero-left p {
+        font-size: 1.2rem;
+        color: white;
+        margin-bottom: 30px;
+        max-width: 600px;
+      }
+
+      .hero-benefits li {
+        color: white;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-benefits i {
+        margin-right: 10px;
+        color: var(--accent);
+        background: rgba(255, 255, 255, 0.2);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Ajustar el botón */
+      .btn-accent {
+        background-color: var(--accent);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 170, 255, 0.3);
+      }
+
+      .btn-accent:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 170, 255, 0.4);
+        background-color: var(--deep-blue);
+      }
+
+      .btn-outline-accent {
+        border: 2px solid var(--accent);
+        color: var(--accent);
+        padding: 10px 28px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-accent:hover {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      /* Formulario en el lado derecho */
+      .hero-form {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        width: 70%; /* Reduce el tamaño del formulario */
+        max-width: 400px; /* Establece un ancho máximo para el formulario */
+        position: absolute;
+        right: 190px; /* Coloca el formulario cerca del borde derecho */
+        top: 10%; /* Ajusta la posición vertical: 30% desde la parte superior */
+        z-index: 2;
+        transform: translateY(-20%); /* Mueve el formulario hacia arriba */
+      }
+      .hero-form h2 {
+        color: var(--accent);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+      }
+      /* Efecto para el hover del formulario */
+      .hero-form:hover {
+        transform: translateY(-10px);
+      }
+
+      .form-box h2 {
+        color: var(--accent);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+      }
+
+      /* Estilo para los campos del formulario */
+      .form-control {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.2);
+      }
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-form {
+          width: 90%; /* Aumenta el tamaño en pantallas más pequeñas */
+          max-width: 350px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-form {
+          width: 95%; /* Aumenta el tamaño en pantallas más pequeñas */
+          max-width: 300px;
+        }
+      }
+      /* Services Section */
+      .services-section {
+        padding: 80px 0;
+        background-color: var(--section-bg);
+        position: relative;
+      }
+
+      .section-title {
+        position: relative;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 60px;
+        color: var(--primary);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+        height: 100%;
+        margin: 15px;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-img {
+        height: 220px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .service-info {
+        padding: 25px;
+      }
+
+      .service-info h5 {
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .service-info p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .read-more {
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .read-more i {
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .read-more:hover i {
+        transform: translateX(5px);
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 50px;
+        height: 50px;
+        background: var(--accent);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+      }
+
+      .carousel-control-prev {
+        left: -25px;
+      }
+
+      .carousel-control-next {
+        right: -25px;
+      }
+
+      /* About Section */
+      .about-section {
+        padding: 80px 0;
+        background-color: white;
+      }
+
+      .about-img {
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+      }
+
+      .about-content h2 {
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 25px;
+      }
+
+      .about-content p {
+        color: #555;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+      }
+
+      .feature-list {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+
+      .feature-list li {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .feature-list i {
+        color: var(--accent);
+        margin-right: 10px;
+        font-size: 1.2rem;
+        margin-top: 5px;
+      }
+
+      .stats {
+        display: flex;
+        gap: 30px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--accent);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        padding: 80px 0;
+        background-color: var(--section-bg);
+      }
+
+      .contact-form {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Footer */
+      .footer {
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        color: white;
+        padding: 60px 0 30px;
+      }
+
+      .footer-logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo span {
+        color: var(--accent);
+      }
+
+      .footer p {
+        color: #cbd5e1;
+        margin-bottom: 20px;
+        max-width: 300px;
+      }
+
+      .footer-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: white;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--accent);
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+        padding-left: 5px;
+      }
+
+      .footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+      }
+
+      .footer-contact i {
+        color: var(--accent);
+        margin-right: 10px;
+        font-size: 1.2rem;
+        min-width: 25px;
+      }
+
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+        margin-top: 40px;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      [data-aos] {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .hero-left h1 {
+          font-size: 2.8rem;
+        }
+
+        .hero-form {
+          margin-top: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-left h1 {
+          font-size: 2.3rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .carousel-control-prev {
+          left: 10px;
+        }
+
+        .carousel-control-next {
+          right: 10px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-left h1 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .service-img {
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header / Navigation Bar -->
+    <header class="header-fixed">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+          <!-- Logo -->
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.jpg" alt="Logo D&D Security" class="logo-img" />
+          </a>
+          <!-- Toggler Button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navigation Links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#home">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Servicios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn-accent ms-2" href="tel:937203853">
+                  <i class="fas fa-phone me-1"></i> 937 203 853
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-left" data-aos="fade-right">
+              <h1 class="fw-bold">
+                D&D <span class="accent">Security SAC</span>
+              </h1>
+              <p class="lead">
+                Protegiendo lo que más valoras<br />
+                <span class="fw-bold"
+                  >Más de 10 años de experiencia, incluyendo servicio en la
+                  Policía Nacional</span
+                >
+              </p>
+              <ul class="list-unstyled hero-benefits">
+                <li data-aos="fade-right" data-aos-delay="100">
+                  <i class="fa-solid fa-shield-halved"></i> Personal de
+                  confianza y altamente capacitado
+                </li>
+                <li data-aos="fade-right" data-aos-delay="200">
+                  <i class="fa-solid fa-user-tie"></i> Tecnología de punta y
+                  monitoreo continuo
+                </li>
+                <li data-aos="fade-right" data-aos-delay="300">
+                  <i class="fa-solid fa-phone"></i> Atención inmediata 24/7
+                </li>
+              </ul>
+              <div class="mt-4">
+                <a
+                  href="#contact"
+                  class="btn btn-accent me-3"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                  >Solicitar Cotización</a
+                >
+                <a
+                  href="tel:937203853"
+                  class="btn btn-outline-accent"
+                  data-aos="fade-up"
+                  data-aos-delay="500"
+                  >Llamar</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-form" data-aos="fade-left" data-aos-delay="200">
+              <div class="form-box">
+                <h2 class="mb-4">Cotización Gratis</h2>
+                <form id="contact-form">
+                  <input
+                    type="text"
+                    class="form-control mb-3"
+                    placeholder="Nombre y Apellido*"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    class="form-control mb-3"
+                    placeholder="Teléfono*"
+                    required
+                  />
+                  <input
+                    type="email"
+                    class="form-control mb-3"
+                    placeholder="Email*"
+                    required
+                  />
+                  <input
+                    type="text"
+                    class="form-control mb-3"
+                    placeholder="Distrito del servicio*"
+                    required
+                  />
+                  <textarea
+                    class="form-control mb-3"
+                    rows="3"
+                    placeholder="Mensaje*"
+                    required
+                    style="height: 50px;"
+                  ></textarea>
+                  <div class="form-check mb-4">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="not-robot"
+                      required
+                    />
+                    <label class="form-check-label" for="not-robot" style="color: black;"
+                      >No soy un robot</label
+                    >
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-accent w-100 py-3 fw-bold"
+                  >
+                    Enviar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
+        <p
+          class="text-center mb-5 mx-auto"
+          style="max-width: 700px"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Ofrecemos una amplia gama de servicios de seguridad adaptados a las
+          necesidades específicas de cada cliente, garantizando la máxima
+          protección y tranquilidad.
+        </p>
+
+        <div
+          id="servicesCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <div class="row">
+                <!-- Servicio 1: Seguridad Personal -->
+                <div class="col-lg-4 col-md-6">
+                  <div
+                    class="service-card"
+                    data-aos="fade-up"
+                    data-aos-delay="150"
+                  >
+                    <img
+                      src="img/bodyguard.avif"
+                      alt="Seguridad Personal"
+                      class="service-img"
+                    />
+                    <div class="service-info">
+                      <h5 class="fw-bold">Seguridad Personal</h5>
+                      <p>
+                        Protección de ejecutivos y personas, con guardaespaldas
+                        certificados y discreción absoluta.
+                      </p>
+                      <a href="#" class="read-more"
+                        >Saber más <i class="fas fa-arrow-right"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Servicio 2: Seguridad Empresarial -->
+                <div class="col-lg-4 col-md-6">
+                  <div
+                    class="service-card"
+                    data-aos="fade-up"
+                    data-aos-delay="250"
+                  >
+                    <img
+                      src="img/security-business.jpg"
+                      alt="Seguridad Empresarial"
+                      class="service-img"
+                    />
+                    <div class="service-info">
+                      <h5 class="fw-bold">Seguridad Empresarial</h5>
+                      <p>
+                        Resguardo y control de accesos en oficinas, empresas y
+                        condominios.
+                      </p>
+                      <a href="#" class="read-more"
+                        >Saber más <i class="fas fa-arrow-right"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Servicio 3: Resguardo de Bienes -->
+                <div class="col-lg-4 col-md-6">
+                  <div
+                    class="service-card"
+                    data-aos="fade-up"
+                    data-aos-delay="350"
+                  >
+                    <img
+                      src="img/resguardodebienes.jpg"
+                      alt="Resguardo de Bienes"
+                      class="service-img"
+                    />
+                    <div class="service-info">
+                      <h5 class="fw-bold">Resguardo de Bienes</h5>
+                      <p>
+                        Custodia de bienes materiales, activos y carga en
+                        movimiento o en almacén.
+                      </p>
+                      <a href="#" class="read-more"
+                        >Saber más <i class="fas fa-arrow-right"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <div class="row">
+                <!-- Servicio 4: Seguridad para Eventos -->
+                <div class="col-lg-4 col-md-6">
+                  <div class="service-card">
+                    <img
+                      src="img/seeguridadeventos.jpg"
+                      alt="Seguridad para Eventos"
+                      class="service-img"
+                    />
+                    <div class="service-info">
+                      <h5 class="fw-bold">Seguridad para Eventos</h5>
+                      <p>
+                        Cobertura total para eventos corporativos, ferias,
+                        sociales y reuniones masivas.
+                      </p>
+                      <a href="#" class="read-more"
+                        >Saber más <i class="fas fa-arrow-right"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Servicio 5: Videovigilancia 24/7 -->
+                <div class="col-lg-4 col-md-6">
+                  <div class="service-card">
+                    <img
+                      src="img/videovigilancia.jpg"
+                      alt="Videovigilancia 24/7"
+                      class="service-img"
+                    />
+                    <div class="service-info">
+                      <h5 class="fw-bold">Videovigilancia 24/7</h5>
+                      <p>
+                        Instalación y monitoreo de cámaras con acceso remoto y
+                        grabación continua.
+                      </p>
+                      <a href="#" class="read-more"
+                        >Saber más <i class="fas fa-arrow-right"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Servicio 6: Respuesta Inmediata -->
+                <div class="col-lg-4 col-md-6">
+                  <div class="service-card">
+                    <img
+                      src="img/respuesta.jpg"
+                      alt="Respuesta Inmediata"
+                      class="service-img"
+                    />
+                    <div class="service-info">
+                      <h5 class="fw-bold">Respuesta Inmediata</h5>
+                      <p>
+                        Atención de emergencias y patrullaje reactivo durante
+                        todo el día.
+                      </p>
+                      <a href="#" class="read-more"
+                        >Saber más <i class="fas fa-arrow-right"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles del Carrusel -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#servicesCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#servicesCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img
+              src="img/personaldeseguridad.jpg"
+              class="about-img"
+              alt="Personal de Seguridad"
+            />
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="about-content">
+              <h2 class="mb-4">Sobre Nosotros</h2>
+              <p>
+                En <b>D&D Security SAC</b> ofrecemos seguridad privada confiable
+                y moderna en Lima y todo el Perú. Más de
+                <b>10 años de experiencia</b> avalan nuestro compromiso y ética
+                profesional.
+              </p>
+              <p>
+                Contamos con agentes que han servido en la Policía Nacional,
+                expertos en prevención y control de riesgos.
+              </p>
+
+              <ul class="list-unstyled feature-list">
+                <li>
+                  <i class="fa-solid fa-check"></i> Planes de seguridad a medida
+                </li>
+                <li>
+                  <i class="fa-solid fa-check"></i> Monitoreo digital y rondas
+                  presenciales
+                </li>
+                <li>
+                  <i class="fa-solid fa-check"></i> Tecnología de última
+                  generación
+                </li>
+                <li>
+                  <i class="fa-solid fa-check"></i> Personal altamente
+                  capacitado
+                </li>
+              </ul>
+
+              <div class="stats">
+                <div class="stat-item">
+                  <div class="stat-number">10+</div>
+                  <div class="stat-label">Años de experiencia</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number">24/7</div>
+                  <div class="stat-label">Disponibilidad</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number">300+</div>
+                  <div class="stat-label">Clientes satisfechos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Contáctanos</h2>
+        <p
+          class="text-center mb-5 mx-auto"
+          style="max-width: 700px"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Estamos aquí para ayudarte. Contáctanos para una consulta gratuita y
+          descubre cómo podemos proteger lo que más valoras.
+        </p>
+
+        <div class="contact-form" data-aos="fade-up" data-aos-delay="200">
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Nombre completo*"
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <input
+                  type="tel"
+                  class="form-control"
+                  placeholder="Teléfono*"
+                  required
+                />
+              </div>
+            </div>
+
+            <input
+              type="email"
+              class="form-control mt-3"
+              placeholder="Email*"
+              required
+            />
+
+            <select class="form-control mt-3" required>
+              <option value="">Selecciona un servicio*</option>
+              <option>Seguridad Personal</option>
+              <option>Seguridad Empresarial</option>
+              <option>Resguardo de Bienes</option>
+              <option>Seguridad de Eventos</option>
+              <option>Videovigilancia</option>
+              <option>Respuesta Inmediata</option>
+              <option>Transporte Seguro</option>
+            </select>
+
+            <textarea
+              class="form-control mt-3"
+              rows="4"
+              placeholder="¿Cómo podemos ayudarte?"
+            ></textarea>
+
+            <button
+              type="submit"
+              class="btn btn-accent w-100 py-3 fw-bold mt-4"
+            >
+              <i class="fas fa-paper-plane me-2"></i> Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <div class="footer-logo">
+              D&D <span class="accent">Security</span> SAC
+            </div>
+            <p>
+              Comprometidos con tu seguridad. Más de 10 años de experiencia y
+              más de 300 clientes satisfechos.
+            </p>
+
+            <div class="mt-4">
+              <h6 class="footer-title">Síguenos</h6>
+              <div class="d-flex gap-3">
+                <a href="#" class="text-white"
+                  ><i class="fab fa-facebook-f fa-lg"></i
+                ></a>
+                <a href="#" class="text-white"
+                  ><i class="fab fa-instagram fa-lg"></i
+                ></a>
+                <a href="#" class="text-white"
+                  ><i class="fab fa-linkedin-in fa-lg"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <h6 class="footer-title">Servicios</h6>
+            <ul class="footer-links">
+              <li><a href="#">Seguridad Personal</a></li>
+              <li><a href="#">Seguridad Empresarial</a></li>
+              <li><a href="#">Resguardo de Bienes</a></li>
+              <li><a href="#">Videovigilancia</a></li>
+              <li><a href="#">Seguridad de Eventos</a></li>
+              <li><a href="#">Respuesta Inmediata</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4">
+            <h6 class="footer-title">Contacto</h6>
+            <ul class="footer-links footer-contact">
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:937203853">937 203 853</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:info@ddsecurity.com">info@ddsecurity.com</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-map-marker-alt"></i>
+                Lima, Perú
+              </li>
+              <li>
+                <i class="fa-solid fa-clock"></i>
+                Disponibilidad 24/7
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright">
+          © 2024 D&D Security SAC. Todos los derechos reservados.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- AOS Animations -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      // Inicializar AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        easing: "ease-out-quad",
+      });
+
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("navbar-scrolled");
+        } else {
+          navbar.classList.remove("navbar-scrolled");
+        }
+      });
+
+      // Form submission
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto."
+          );
+          this.reset();
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 70,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
